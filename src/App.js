@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Navbar from 'react-bootstrap/Navbar';
+import Editor from './components/Editor';
+import ExampleDocument from './utils/ExampleDocument';
 
 function App() {
+  const [document, updateDocument] = useState(ExampleDocument);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#">WYSIWYG Editor</Navbar.Brand>
+      </Navbar>
+      <div className="App">
+        <Editor document={document} onChange={updateDocument}></Editor>
+      </div>
+    </>
   );
 }
 
