@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Editor from './components/Editor';
 import ExampleDocument from './utils/ExampleDocument';
