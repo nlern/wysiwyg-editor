@@ -26,8 +26,30 @@ const renderElement = (props) => {
   }
 };
 
+const renderLeaf = ({ attributes, children, leaf }) => {
+  let el = <>{children}</>;
+
+  if (leaf.bold) {
+    el = <strong>{el}</strong>;
+  }
+
+  if (leaf.italic) {
+    el = <em>{el}</em>;
+  }
+
+  if (leaf.code) {
+    el = <code>{el}</code>;
+  }
+
+  if (leaf.underline) {
+    el = <u>{el}</u>;
+  }
+
+  return <span {...attributes}>{el}</span>;
+};
+
 const useEditorConfig = (editor) => {
-  return { renderElement };
+  return { renderElement, renderLeaf };
 };
 
 export default useEditorConfig;
