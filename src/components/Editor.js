@@ -8,8 +8,10 @@ export default function Editor({ document, onChange }) {
   const { renderElement, renderLeaf } = useEditorConfig(editor);
 
   return (
-    <Slate editor={editor} value={document} onChange={onChange}>
-      <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
-    </Slate>
+    <div className="p-4 h-100">
+      <Slate editor={editor} value={document} onChange={onChange}>
+        <Editable renderElement={renderElement} renderLeaf={renderLeaf} />
+      </Slate>
+    </div>
   );
 }
